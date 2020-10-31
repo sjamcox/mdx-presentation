@@ -595,3 +595,32 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+footer {
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  z-index: 100;
+}
+
+.boxed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: blue;
+  padding: 50px;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.react-live {
+  font-size: 25px;
+}
+
+.react-live-preview {
+  color: black;
+}

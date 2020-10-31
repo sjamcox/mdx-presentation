@@ -1,0 +1,313 @@
+import myTheme from '../src/gatsby-plugin-theme-ui'
+import mdxlogo from '../src/images/mdx.png'
+import mdxExample from '../src/images/mdx-example.png'
+import Counter from '../src/components/counter'
+import Spring from '../src/components/spring'
+import Switches from '../src/components/switches'
+import Layout from '../src/components/layout'
+import { LiveCode } from 'mdx-deck-live-code';
+
+export const theme = myTheme;
+
+<Layout>
+
+<img src={mdxlogo} alt="MDX logo"/>
+
+# MDX and mdx-deck
+
+</Layout>
+
+<Notes>
+
+- Alright, today I'm going to share a little bit about MDX and a node module called mdx-deck.
+
+</Notes>
+
+---
+
+<Layout progress={7}>
+
+# What is Markdown?
+
+Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world’s most popular markup languages.
+[^1]: (https://www.markdownguide.org/getting-started/)
+
+</Layout>
+
+<Notes>
+
+- First, I thought it might help to briefly touch on Markdown and what Markdown is, since that's the foundation of MDX.
+- Markdown is a markup language for formatting text on the web. If you've ever written a README file for GitHub or done web development for any amount of time you've likely ran into Markdown. Slack also uses a subset of Markdown for its chat interface.
+- Markdown is said to be easier to read and write than HTML, but it's definitely not as full featured.
+
+</Notes>
+
+---
+
+<Layout progress={14}>
+
+# Markdown Syntax
+
+## Headings
+
+\# H1 <br />
+\#\# H2 <br />
+\#\#\# H3
+
+</Layout>
+
+<Notes>
+
+- You'll see there's heading tags that are marked with a hash
+- One hash is an h1, two is an h2, and so on
+
+</Notes>
+
+---
+
+<Layout progress={21}>
+
+# Markdown Syntax
+
+## Emphasis
+\*\*Bold\*\*
+
+\*Italic\*
+
+</Layout>
+
+<Notes>
+
+- Bold and italic are marked with asterisks
+
+</Notes>
+
+---
+
+<Layout progress={28}>
+
+# Markdown Syntax
+
+## Code
+\`Code\`
+
+\`\`\`
+Code Block
+\`\`\`
+
+</Layout>
+
+<Notes>
+
+- Code and code blocks are marked with backticks
+
+</Notes>
+
+---
+
+<Layout progress={35}>
+
+\# My Favorite
+
+\#\# Halloween Candy
+
+\- Reese's <br />
+\- Twix <br />
+\- Snickers
+
+</Layout>
+
+<Notes>
+
+- Here's a little example of some markdown that we'll render on the next slide. You'll notice the candy names all start with hyphens, which denotes a bulleted list.
+
+</Notes>
+
+---
+
+<Layout progress={42}>
+
+# My Favorite
+
+## Halloween Candy
+
+- Reese's <br />
+- Twix <br />
+- Snickers
+
+</Layout>
+
+<Notes>
+
+- and here's that same Markdown but rendered
+- But this is a presentation about MDX. What's that?
+
+</Notes>
+
+---
+
+<Layout progress={49}>
+
+# What is MDX?
+MDX lets you seamlessly write JSX in your Markdown documents. You can import components, such as interactive charts or alerts, and embed them within your content.
+[^1]: (https://mdxjs.com/)
+
+</Layout>
+
+<Notes>
+
+- MDX lets you blend Markdown and JSX, which means you can import and use React components, mix in HTML looking tags (that are really JSX) and stuff like that
+- MDX touts itself as "Markdown for the component era".
+
+</Notes>
+
+---
+
+<Layout progress={56}>
+
+<img src={mdxExample} alt="MDX Example"/>
+
+</Layout>
+
+<Notes>
+
+- Here's an example of MDX. You can see at the top we're importing a component into our MDX file
+- We're using a single Markdown hash for Header 1
+- We're inserting our imported component using JSX
+
+</Notes>
+
+---
+
+<Layout progress={63}>
+
+# So what is
+## mdx-deck?
+
+- 📝 Write presentations in Markdown
+- ⚛️ Import and use React components
+- 💅 Customizable themes and components
+- 💁‍♀️ Presenter mode
+- 📓 Speaker notes
+
+</Layout>
+
+<Notes>
+
+- Reference slide
+- So why would we want to use mdx-deck over something like Google Slides, PowerPoint, etc.?
+
+</Notes>
+
+---
+
+<Layout progress={70}>
+
+# Live Components
+
+<Counter />
+
+</Layout>
+
+<Notes>
+
+- As mentioned before, we can import live React components into our slide deck. This is a live button we can use to increment a counter. Kinda cool.
+
+</Notes>
+
+---
+
+<Layout progress={77}>
+
+# NPM Modules
+
+<Spring />
+
+</Layout>
+
+<Notes>
+
+- We can install and use packages from NPM to add to our presentation
+- In this slide I've imported react-spring which is an animation library, and we can use that to animate elements in the deck
+
+</Notes>
+
+---
+
+<Layout progress={84}>
+
+# Use state!
+<Switches />
+
+</Layout>
+
+<Notes>
+
+- Since this is a React application, we can use state throughout our application.
+- I've imported a switch from the material-ui library, and when we switch it the background around our content area turns blue.
+- If we go back and look, this affects all of our other slides as well.
+
+</Notes>
+
+---
+
+<LiveCode
+  title="Live Coding"
+  size="large"
+  code={`class Counter extends React.Component {
+  constructor() {
+    super()
+    this.state = { count: 0 }
+  }
+  handleClick() {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  render() {
+    return (
+      <center>
+        <h3>
+          {this.state.count}
+        </h3>
+        <button onClick={this.handleClick}>
+          Click to increase
+        </button>
+      </center>
+    )
+  }
+}`}
+/>
+
+<Notes>
+- There's even a package called mdx-deck-live-code which allows you to do live coding inside of your presentation.
+- As you can see, the button on the left isn't working at the moment. Can anyone tell me why the code on the right isn't working?
+- Nobody knew there was going to be a pop quiz during this presentation.
+
+</Notes>
+
+---
+
+<Layout progress={93}>
+
+# Cons
+
+- Drag and drop is nice
+- Honestly, it'll probably take longer
+- It can crash
+
+</Layout>
+
+---
+
+<Layout progress={100}>
+
+# Resources
+
+- [This Repo](#speaker-notes)
+- [MDX Docs](https://mdxjs.com/)
+- [mdx-deck Repo](https://github.com/jxnblk/mdx-deck)
+- Built with [Gatsby](https://www.gatsbyjs.com/)
+- Deployed with [Netlify](https://www.netlify.com/)
+
+</Layout>
