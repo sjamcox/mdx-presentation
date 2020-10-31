@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-const ThemeContext = React.createContext(null)
+const defaultState = {
+  isBoxed: false,
+  setIsBoxed: () => {}
+}
+const ThemeContext = React.createContext(defaultState)
 
 const ThemeContextProvider = ({ children }) => {
 
